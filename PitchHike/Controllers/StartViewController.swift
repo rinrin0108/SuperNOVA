@@ -177,7 +177,7 @@ class StartViewController: UIViewController {
   }
   
   func getRequestStatus(requestStatus:String) -> JSON{
-    let getRequestStatusURL = "http://localhost:8080/getRequestStatus?_id=" + requestStatus
+    let getRequestStatusURL = "https://www.supernova-hack.com/getRequestStatus?_id=" + requestStatus
     let requestStatus = JSON(url: getRequestStatusURL)
     print(getRequestStatusURL)
     print(requestStatus)
@@ -185,7 +185,7 @@ class StartViewController: UIViewController {
   }
   
   func getUser(requestUserId:String) -> JSON{
-    let getUserURL = "http://localhost:8080/getUser?userid=" + requestUserId
+    let getUserURL = serverUrl + "/getUser?userid=" + requestUserId
     let userRes = JSON(url: getUserURL)
     print(getUserURL)
     print(userRes)
@@ -193,7 +193,7 @@ class StartViewController: UIViewController {
   }
   
   func startPitching(requestStatusID:String) -> JSON{
-    let startPitchingURL = "http://localhost:8080/startPitching?_id=" + requestStatusID
+    let startPitchingURL = serverUrl + "/startPitching?_id=" + requestStatusID
     let startPitchingRes = JSON(url: startPitchingURL)
     print(startPitchingURL)
     print(startPitchingRes)
@@ -201,7 +201,7 @@ class StartViewController: UIViewController {
   }
   
   func getImage(image:String)->NSData{
-    let url = NSURL(string: "http://localhost:8080/getImage?url=" + image);
+    let url = NSURL(string: serverUrl + "/getImage?url=" + image);
     var err: NSError?;
     let getImageRes :NSData = try! NSData(contentsOfURL: url!,options: NSDataReadingOptions.DataReadingMappedIfSafe);
     return getImageRes

@@ -108,7 +108,7 @@ class TopicsViewController: UIViewController,UITableViewDelegate , UITableViewDa
   
   
   func getRequestStatus(requestStatusID:String) -> JSON{
-    let getRequestStatusURL = "http://localhost:8080/getRequestStatus?_id=" + requestStatusID
+    let getRequestStatusURL = serverUrl + "/getRequestStatus?_id=" + requestStatusID
     let requestStatus = JSON(url: getRequestStatusURL)
     print(getRequestStatusURL)
     print(requestStatus)
@@ -148,7 +148,7 @@ class TopicsViewController: UIViewController,UITableViewDelegate , UITableViewDa
   
   
   func getTopics() -> JSON{
-    let getTopicsURL = "http://localhost:8080/getTopics"
+    let getTopicsURL = serverUrl + "/getTopics"
     let topicsRes = JSON(url: getTopicsURL)
     print(getTopicsURL)
     print(topicsRes)

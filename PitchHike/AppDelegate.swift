@@ -8,6 +8,8 @@
 
 import UIKit
 
+let serverUrl = "https://www.supernova-hack.com"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   

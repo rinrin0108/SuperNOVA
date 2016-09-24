@@ -392,7 +392,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
   
   func getRequestStatus(_id:String) -> JSON{
     NSLog("---MapViewController getRequestStatus---");
-    let getRequestStatusURL = "http://localhost:8080/getRequestStatus?_id="+_id
+    let getRequestStatusURL = "https://www.supernova-hack.com/getRequestStatus?_id="+_id
     let requestStatusRes = JSON(url: getRequestStatusURL)
     print(getRequestStatusURL)
     print(requestStatusRes)
@@ -401,7 +401,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
   
   func getUser(requestUserId:String) -> JSON{
     NSLog("---MapViewController getUser---");
-    let userReq = "http://localhost:8080/getUser?userid=" + requestUserId
+    let userReq = "https://www.supernova-hack.com/getUser?userid=" + requestUserId
     let user = JSON(url: userReq)
     print(userReq)
     print(user)
@@ -462,7 +462,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
   
   func getImage(image:String)->NSData{
     NSLog("---MapViewController getImage---");
-    let url = NSURL(string: "http://localhost:8080/getImage?url=" + image);
+    let url = NSURL(string: serverUrl + "/getImage?url=" + image);
     var err: NSError?;
     let getImageRes :NSData = try! NSData(contentsOfURL: url!,options: NSDataReadingOptions.DataReadingMappedIfSafe);
     return getImageRes
@@ -472,7 +472,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
   //プレゼン用の偽装コード　使い終わったら必ず消すこと！！
   func responseTeacher(userid:String,requestStatusID:String) -> JSON{
     NSLog("---MapViewController responseTeacher---");
-    let responseTeacherURL = "http://localhost:8080/responseTeacher?userid=" + userid + "&_id=" + requestStatusID
+    let responseTeacherURL = serverUrl + "/responseTeacher?userid=" + userid + "&_id=" + requestStatusID
     let responseTeacherRes = JSON(url: responseTeacherURL)
     print(responseTeacherURL)
     print(responseTeacherRes)
@@ -483,7 +483,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
   
   func getArrivedTime(_id:String) -> JSON{
     NSLog("---MapViewController getArrivedTime---");
-    let getArrivedTimeURL = "http://localhost:8080/updateArrive?_id="+_id
+    let getArrivedTimeURL = serverUrl + "/updateArrive?_id="+_id
     let requestStatusRes = JSON(url: getArrivedTimeURL)
     print(getArrivedTimeURL)
     print(requestStatusRes)
